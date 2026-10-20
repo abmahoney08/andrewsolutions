@@ -1,3 +1,48 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <!-- Purple planet gradient matching universe theme -->
+    <radialGradient id="planetGradient" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e9d5ff" />
+      <stop offset="25%" stop-color="#c084fc" />
+      <stop offset="65%" stop-color="#7e22ce" />
+      <stop offset="100%" stop-color="#3b0764" />
+    </radialGradient>
+
+    <!-- Planetary ring gradient -->
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3e8ff" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#6b21a8" stop-opacity="0.6" />
+    </linearGradient>
+  </defs>
+
+  <!-- Back ring (behind planet) -->
+  <path
+    d="M 5 32 A 27 7.5 0 0 1 59 32"
+    stroke="url(#ringGradient)"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    transform="rotate(-22 32 32)"
+    opacity="0.6"
+  />
+
+  <!-- Purple Planet Sphere -->
+  <circle cx="32" cy="32" r="18" fill="url(#planetGradient)" />
+
+  <!-- Subtle crater spots -->
+  <circle cx="26" cy="24" r="3.2" fill="#6b21a8" opacity="0.35" />
+  <circle cx="39" cy="36" r="3.6" fill="#581c87" opacity="0.4" />
+  <circle cx="24" cy="38" r="2.2" fill="#581c87" opacity="0.3" />
+
+  <!-- Gentle atmosphere shine -->
+  <ellipse cx="26" cy="22" rx="5" ry="2.6" fill="#ffffff" opacity="0.3" transform="rotate(-25 26 22)" />
+
+  <!-- Front ring (in front of planet) -->
+  <path
+    d="M 59 32 A 27 7.5 0 0 1 5 32"
+    stroke="url(#ringGradient)"
+    stroke-width="3.5"
+    stroke-linecap="round"
+    transform="rotate(-22 32 32)"
+  />
 </svg>
