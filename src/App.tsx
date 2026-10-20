@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { ErrorBoundary } from '@/components/error-boundary';
 import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
@@ -71,6 +71,16 @@ const projects = [
 
 function Home() {
   const baseUrl = (typeof import.meta !== 'undefined' && import.meta.env?.BASE_URL) || '/';
+
+  useEffect(() => {
+    const planetSvg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'><defs><radialGradient id='p' cx='35%' cy='30%' r='70%'><stop offset='0%' stop-color='%23e9d5ff'/><stop offset='25%' stop-color='%23c084fc'/><stop offset='65%' stop-color='%237e22ce'/><stop offset='100%' stop-color='%233b0764'/></radialGradient><linearGradient id='r' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%23f3e8ff'/><stop offset='50%' stop-color='%23a855f7'/><stop offset='100%' stop-color='%236b21a8'/></linearGradient></defs><path d='M 5 32 A 27 7.5 0 0 1 59 32' stroke='url(%23r)' stroke-width='3.5' stroke-linecap='round' transform='rotate(-22 32 32)' opacity='0.6'/><circle cx='32' cy='32' r='18' fill='url(%23p)'/><circle cx='26' cy='24' r='3.2' fill='%236b21a8' opacity='0.35'/><circle cx='39' cy='36' r='3.6' fill='%23581c87' opacity='0.4'/><circle cx='24' cy='38' r='2.2' fill='%23581c87' opacity='0.3'/><ellipse cx='26' cy='22' rx='5' ry='2.6' fill='%23ffffff' opacity='0.3' transform='rotate(-25 26 22)'/><path d='M 59 32 A 27 7.5 0 0 1 5 32' stroke='url(%23r)' stroke-width='3.5' stroke-linecap='round' transform='rotate(-22 32 32)'/></svg>`;
+    const dataUri = `data:image/svg+xml,${encodeURIComponent(planetSvg)}`;
+    
+    const existingIcons = document.querySelectorAll<HTMLLinkElement>("link[rel*='icon']");
+    existingIcons.forEach((el) => {
+      el.href = dataUri;
+    });
+  }, []);
 
   return (
     <div className="universe min-h-[100dvh] text-[#e8eef8]">
