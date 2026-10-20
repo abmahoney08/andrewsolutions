@@ -1,0 +1,8 @@
+{
+  "name": "Remix Andrewsolutions-portfolio",
+  "description": "Imported from GitHub: abmahoney08/Andrewsolutions-portfolio",
+  "prompt": "Portfolio website for Andrew Mahoney",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

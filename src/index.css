@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-sans);
+  background: #0d1020;
+  color: #eff2f7;
+}
+
+::selection {
+  background: #87e5cf;
+  color: #101426;
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+/* Continuous deep space starfield */
+.universe {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 16% 8%, rgba(49, 72, 121, 0.26), transparent 35rem),
+    radial-gradient(ellipse at 82% 42%, rgba(34, 93, 98, 0.12), transparent 36rem),
+    #0d1020;
+}
+
+.universe::before,
+.universe::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.universe::before {
+  opacity: 0.68;
+  background-image:
+    radial-gradient(2px 2px at 7% 18%, rgba(238, 248, 255, 0.9) 45%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 24% 62%, rgba(179, 214, 255, 0.84) 45%, transparent 100%),
+    radial-gradient(2.5px 2.5px at 72% 24%, rgba(223, 247, 255, 0.95) 45%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 89% 72%, rgba(179, 214, 255, 0.86) 45%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 48% 88%, rgba(255, 255, 255, 0.86) 45%, transparent 100%);
+  background-size: 247px 233px, 311px 291px, 387px 347px, 293px 271px, 449px 413px;
+  animation: star-drift 100s linear infinite, star-twinkle 5s ease-in-out infinite alternate;
+}
+
+.universe::after {
+  opacity: 0.15;
+  background: radial-gradient(ellipse at center, transparent 45%, #050711 100%);
+}
+
+/* Hero floating cartoon planet */
+.hero-planet {
+  position: absolute;
+  width: min(32vw, 380px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 18%;
+  right: 7%;
+  background:
+    radial-gradient(circle at 33% 28%, rgba(255, 255, 255, 0.38), transparent 22%),
+    radial-gradient(circle at 68% 65%, rgba(61, 55, 146, 0.26) 0 8%, transparent 8.5%),
+    radial-gradient(circle at 39% 72%, rgba(61, 55, 146, 0.2) 0 5%, transparent 5.5%),
+    radial-gradient(circle at 30% 26%, #c4beff 0, #9688ed 28%, #7067cc 65%, #4c4c9c 100%);
+  box-shadow:
+    inset -24px -28px 42px rgba(36, 34, 96, 0.38),
+    inset 12px 10px 25px rgba(255, 255, 255, 0.12),
+    0 28px 80px rgba(82, 80, 190, 0.2);
+  opacity: 0.66;
+  animation: hero-planet-float 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Bulletproof CSS rise-in entrance that always guarantees 100% visibility */
+.rise-in {
+  animation: rise-in-kf 750ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+
+.delay-2 {
+  animation-delay: 160ms;
+}
+
+.delay-3 {
+  animation-delay: 240ms;
+}
+
+@keyframes rise-in-kf {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Project planet orbs */
+.project-orb {
+  position: relative;
+  isolation: isolate;
+  border-radius: 50%;
+  box-shadow:
+    inset -24px -28px 42px rgba(12, 22, 58, 0.24),
+    inset 12px 10px 24px rgba(255, 255, 255, 0.16),
+    0 28px 65px rgba(0, 0, 0, 0.22);
+  animation: planet-float 7s ease-in-out infinite;
+}
+
+.planet-violet {
+  background:
+    radial-gradient(circle at 24% 32%, rgba(70, 66, 156, 0.23) 0 5%, transparent 5.5%),
+    radial-gradient(circle at 73% 33%, rgba(255, 255, 255, 0.2) 0 7%, transparent 7.5%),
+    radial-gradient(circle at 68% 72%, rgba(70, 66, 156, 0.2) 0 9%, transparent 9.5%),
+    radial-gradient(circle at 32% 24%, #c5bfff 0, #9a90ef 31%, #766ed2 67%, #5555ac 100%);
+}
+
+.planet-blue {
+  background:
+    radial-gradient(circle at 24% 35%, rgba(27, 84, 150, 0.25) 0 6%, transparent 6.5%),
+    radial-gradient(circle at 72% 30%, rgba(255, 255, 255, 0.28) 0 8%, transparent 8.5%),
+    radial-gradient(circle at 66% 74%, rgba(27, 84, 150, 0.24) 0 10%, transparent 10.5%),
+    radial-gradient(circle at 31% 26%, #bfeaff 0, #72c2f5 31%, #3e8cdd 67%, #2456b2 100%);
+}
+
+.planet-rose {
+  background:
+    radial-gradient(circle at 24% 35%, rgba(131, 48, 91, 0.24) 0 6%, transparent 6.5%),
+    radial-gradient(circle at 72% 30%, rgba(255, 255, 255, 0.28) 0 8%, transparent 8.5%),
+    radial-gradient(circle at 66% 74%, rgba(131, 48, 91, 0.24) 0 10%, transparent 10.5%),
+    radial-gradient(circle at 31% 26%, #ffd4e3 0, #f28db5 31%, #d35f94 67%, #913c70 100%);
+}
+
+.project-orb-image {
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: #101729;
+  box-shadow: 0 18px 42px rgba(2, 6, 16, 0.28);
+}
+
+.project-orb-image img {
+  transition: transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.project-orb:hover {
+  filter: brightness(1.06);
+}
+
+.project-orb:hover .project-orb-image img {
+  transform: scale(1.035);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #a5f2df;
+  outline-offset: 5px;
+}
+
+@keyframes star-drift {
+  to {
+    background-position: 247px 233px, -311px 291px, 387px -347px, -293px -271px, 449px 413px;
+  }
+}
+
+@keyframes star-twinkle {
+  from {
+    opacity: 0.48;
+  }
+  to {
+    opacity: 0.84;
+  }
+}
+
+@keyframes planet-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes hero-planet-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-planet {
+    width: 150px;
+    top: 8%;
+    right: 2%;
+    opacity: 0.32;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .rise-in {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

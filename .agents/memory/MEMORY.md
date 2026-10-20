@@ -1,0 +1,1 @@
+- [Portfolio visual direction](portfolio-style.md) — simple, eye-catching cartoon space with stars and planets; avoid orbit lines and numeric labels.
